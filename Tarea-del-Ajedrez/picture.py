@@ -1,6 +1,6 @@
-from matplotlib.ft2font import HORIZONTAL
+
 from colors import *
-import numpy as np
+
 class Picture:
   def __init__(self, img):
     self.img = img
