@@ -145,6 +145,7 @@
            https://www.freecodecamp.org/espanol/news/expresiones-lambda-en-python/#:~:text=Las%20expresiones%20lambda%20en%20Python,con%20la%20palabra%20clave%20def%20
         </li>
         <li>https://www.analyticslane.com/2019/09/23/listas-por-comprension-en-python/</li>
+        <li>https://www.geeksforgeeks.org/python-map-function/</li>
     </ul>
     
     
