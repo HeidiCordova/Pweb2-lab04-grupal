@@ -1,6 +1,7 @@
 
 from colors import *
 
+
 class Picture:
   def __init__(self, img):
     self.img = img
@@ -37,15 +38,36 @@ class Picture:
   def up(self, p):
     return Picture(None)
 
-  def under(self, p):
-    """ Devuelve una nueva figura poniendo la figura p sobre la
-        figura actual """
-    return Picture(None)
-  
+ def under(self, p):
+        """ Devuelve una nueva figura poniendo la figura p sobre la
+            figura actual """
+        newPicture = []
+        # Recorremos las filas de la figura p (argumento - va encima)
+        for i in range(len(p.img)):
+            tempLine = ""
+            # Recorremos cada caracter de la fila
+            for j in range(len(p.img[i])):
+                if p.img[i][j] != " ":  # Si el caracter no es un espacio
+                    # Añadimos el caracter a la nueva fila
+                    tempLine += p.img[i][j]
+                else:  # Si el caracter es un espacio
+                    # Añadimos el caracter de la figura actual (la que irá detrás)
+                    tempLine += self.img[i][j]
+            # Añadimos la nueva fila a la nueva figura
+            newPicture.append(tempLine)
+        return Picture(newPicture)
+
   def horizontalRepeat(self, n):
-    """ Devuelve una nueva figura repitiendo la figura actual al costado
-        la cantidad de veces que indique el valor de n """
-    return Picture(None)
+      """ Devuelve una nueva figura repitiendo la figura actual al costado
+          la cantidad de veces que indique el valor de n """
+      newPicture = self.img
+      i = 0
+      while i < n:
+          # usamos map para hacer que se repita cada string, por ejemplo si
+          # la primera fila fuera " a ", ahora sería " a  a "
+          newPicture = map(lambda x, y: x + y, newPicture, self.img)
+          i += 1
+      return Picture(list(newPicture))
 
   def verticalRepeat(self, n):
     vertical = []
@@ -57,4 +79,3 @@ class Picture:
     """Devuelve una figura rotada en 90 grados, puede ser en sentido horario
     o antihorario"""
     return Picture(None)
-
