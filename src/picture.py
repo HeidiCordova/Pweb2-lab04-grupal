@@ -3,46 +3,42 @@ from colors import *
 
 
 class Picture:
-    def __init__(self, img):
-        self.img = img
+  def __init__(self, img):
+    self.img = img
 
-    def __eq__(self, other):
-        return self.img == other.img
+  def __eq__(self, other):
+    return self.img == other.img
 
-    def _invColor(self, color):
-        if color not in inverter:
-            return color
-        return inverter[color]
+  def _invColor(self, color):
+    if color not in inverter:
+      return color
+    return inverter[color]
 
-    def verticalMirror(self):
-        """ Devuelve el espejo vertical de la imagen """
-        vertical = []
-        for value in self.img:
-            vertical.append(value[::-1])
-        return vertical
+  def verticalMirror(self):
+    """ Devuelve el espejo vertical de la imagen """
+    vertical = []
+    for value in self.img:
+      vertical.append(value[::-1])
+    return vertical
 
-    def horizontalMirror(self):
-        """ Devuelve el espejo horizontal de la imagen """
-        return Picture(None)
+  def horizontalMirror(self):
+    """ Devuelve el espejo horizontal de la imagen """
+    return Picture(None)
+    
 
-    def negative(self):
-        """ Devuelve un negativo de la imagen """
-        return Picture(None)
+  def negative(self):
+    """ Devuelve un negativo de la imagen """
+    return Picture(None)
 
-    def join(self, p):
-        """ Devuelve una nueva figura poniendo la figura del argumento 
-            al lado derecho de la figura actual """
-        return Picture(None)
+  def join(self, p):
+    """ Devuelve una nueva figura poniendo la figura del argumento 
+        al lado derecho de la figura actual """
+    return Picture(None)
 
-    def up(self, p):
-        # Utilizamos listas por comprensión para añadir las figuras
-        newPicture = [line for line in p.img]
-        # Utilizamos el operador += para añadir las segunda figura también por listas por comprensión
-        newPicture += [line for line in self.img]
-        # Retornamos la nueva figura
-        return Picture(newPicture)
+  def up(self, p):
+    return Picture(None)
 
-    def under(self, p):
+ def under(self, p):
         """ Devuelve una nueva figura poniendo la figura p sobre la
             figura actual """
         newPicture = []
@@ -61,26 +57,25 @@ class Picture:
             newPicture.append(tempLine)
         return Picture(newPicture)
 
-    def horizontalRepeat(self, n):
-        """ Devuelve una nueva figura repitiendo la figura actual al costado
-            la cantidad de veces que indique el valor de n """
-        newPicture = self.img
-        i = 0
-        while i < n:
-            # usamos map para hacer que se repita cada string, por ejemplo si
-            # la primera fila fuera " a ", ahora sería " a  a "
-            newPicture = map(lambda x, y: x + y, newPicture, self.img)
-            i += 1
-        return Picture(list(newPicture))
+  def horizontalRepeat(self, n):
+      """ Devuelve una nueva figura repitiendo la figura actual al costado
+          la cantidad de veces que indique el valor de n """
+      newPicture = self.img
+      i = 0
+      while i < n:
+          # usamos map para hacer que se repita cada string, por ejemplo si
+          # la primera fila fuera " a ", ahora sería " a  a "
+          newPicture = map(lambda x, y: x + y, newPicture, self.img)
+          i += 1
+      return Picture(list(newPicture))
 
-    def verticalRepeat(self, n):
-        vertical = []
-        for value in self.img:
-            vertical.append(value[::-1])
-        return vertical*n
-    # Extra: Sólo para realmente viciosos
-
-    def rotate(self):
-        """Devuelve una figura rotada en 90 grados, puede ser en sentido horario
-        o antihorario"""
-        return Picture(None)
+  def verticalRepeat(self, n):
+    vertical = []
+    for value in self.img:
+      vertical.append(value[::])
+    return vertical * n
+  #Extra: Sólo para realmente viciosos 
+  def rotate(self):
+    """Devuelve una figura rotada en 90 grados, puede ser en sentido horario
+    o antihorario"""
+    return Picture(None)
