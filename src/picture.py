@@ -1,80 +1,72 @@
-
 from colors import *
 
 
 class Picture:
-  def __init__(self, img):
-    self.img = img
+    def __init__(self, img):
+        self.img = img
 
-  def __eq__(self, other):
+    def __eq__(self, other):
 
-    return self.img == other.img
+        return self.img == other.img
 
-  def _invColor(self, color):
-    if color not in inverter:
-      return color
-    return inverter[color]
+    def _invColor(self, color):
+        if color not in inverter:
+            return color
+        return inverter[color]
 
-  def verticalMirror(self):
-    """ Devuelve el espejo vertical de la imagen """
-    vertical = []
-    for value in self.img:
-      vertical.append(value[::-1])
-    return vertical
+    def verticalMirror(self):
+        """ Devuelve el espejo vertical de la imagen """
+        vertical = []
+        for value in self.img:
+            vertical.append(value[::-1])
+        return Picture(vertical)
 
-  def horizontalMirror(self):
-    """ Devuelve el espejo horizontal de la imagen """
-    cambioHorizon = self.img
-    listHorizon = []
-    """Se cambio la imagen horizontalmente"""
-    ultimo = len(self.img) - 1
-    while (ultimo >= 0):
-      listHorizon.append(cambioHorizon[ultimo])
-      ultimo = ultimo - 1
-      
-    return Picture(listHorizon)
-    
+    def horizontalMirror(self):
+        """ Devuelve el espejo horizontal de la imagen """
+        cambioHorizon = self.img
+        listHorizon = []
+        """Se cambio la imagen horizontalmente"""
+        ultimo = len(self.img) - 1
+        while (ultimo >= 0):
+            listHorizon.append(cambioHorizon[ultimo])
+            ultimo = ultimo - 1
+        return Picture(listHorizon)
 
-  def negative(self):
-    """ Devuelve un negativo de la imagen """
-    negativo = []
-    for x in range(len(self.img)):
-      inv = ""
-      """Se guardara cada elemento ya invertido"""
-      for a in self.img[x]:
-        inv += self._invColor(a)
-      negativo.append(inv)
+    def negative(self):
+        """ Devuelve un negativo de la imagen """
+        negativo = []
+        for x in range(len(self.img)):
+            inv = ""
+            """Se guardara cada elemento ya invertido"""
+            for a in self.img[x]:
+                inv += self._invColor(a)
+            negativo.append(inv)
+        return Picture(negativo)
 
-    return Picture(negativo)
+    def join(self, p):
+        """ Devuelve una nueva figura poniendo la figura del argumento
+            al lado derecho de la figura actual """
+        fig1_self = []
+        fig2_p = []
+        for value1 in self.img:
+            fig1_self.append(value1[::])
+        for value2 in p.img:
+            fig2_p.append(value2[::])
 
-  def join(self, p):
-    """ Devuelve una nueva figura poniendo la figura del argumento 
-        al lado derecho de la figura actual """
+        figTotal = []
+        for i in range(len(p.img)):
+            figTotal.append(fig1_self[i]+fig2_p[i])
+        return Picture(figTotal)
 
-    fig1_self=[]
-    fig2_p=[]
-    for value1 in self.img:
-      fig1_self.append(value1[::])
-    for value2 in p.img:
-      fig2_p.append(value2[::])
+    def up(self, p):
+        figTotal = []
+        for value1 in p.img:
+            figTotal.append(value1[::])
+        for value2 in self.img:
+            figTotal.append(value2[::])
+        return Picture(figTotal)
 
-    figTotal = []
-    for i in range(len(p.img)):
-      figTotal.append(fig1_self[i]+fig2_p[i])
-      
-    return figTotal
-
-  def up(self, p):
-    figTotal = []
-    for value1 in p.img:
-      figTotal.append(value1[::])
-    for value2 in self.img:
-      figTotal.append(value2[::])
-      
-    return figTotal
-
- 
- def under(self, p):
+    def under(self, p):
         """ Devuelve una nueva figura poniendo la figura p sobre la
             figura actual """
         newPicture = []
@@ -93,27 +85,26 @@ class Picture:
             newPicture.append(tempLine)
         return Picture(newPicture)
 
-  def horizontalRepeat(self, n):
-      """ Devuelve una nueva figura repitiendo la figura actual al costado
-          la cantidad de veces que indique el valor de n """
-      newPicture = self.img
-      i = 0
-      while i < n:
-          # usamos map para hacer que se repita cada string, por ejemplo si
-          # la primera fila fuera " a ", ahora sería " a  a "
-          newPicture = map(lambda x, y: x + y, newPicture, self.img)
-          i += 1
-      return Picture(list(newPicture))
+    def horizontalRepeat(self, n):
+        """ Devuelve una nueva figura repitiendo la figura actual al costado
+            la cantidad de veces que indique el valor de n """
+        newPicture = self.img
+        i = 0
+        while i < n:
+            # usamos map para hacer que se repita cada string, por ejemplo si
+            # la primera fila fuera " a ", ahora sería " a  a "
+            newPicture = map(lambda x, y: x + y, newPicture, self.img)
+            i += 1
+        return Picture(list(newPicture))
 
+    def verticalRepeat(self, n):
+        vertical = []
+        for value in self.img:
+            vertical.append(value[::])
+        return Picture(vertical * n)
 
-  def verticalRepeat(self, n):
-    vertical = []
-    for value in self.img:
-      vertical.append(value[::])
-    return vertical * n
-
-  #Extra: Sólo para realmente viciosos 
-  def rotate(self):
-    """Devuelve una figura rotada en 90 grados, puede ser en sentido horario
-    o antihorario"""
-    return Picture(None)
+    # Extra: Sólo para realmente viciosos
+    def rotate(self):
+        """Devuelve una figura rotada en 90 grados, puede ser en sentido horario
+        o antihorario"""
+        return Picture(None)
