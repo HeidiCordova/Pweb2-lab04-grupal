@@ -2,10 +2,10 @@
 from colors import *
 
 class Picture:
-  def __init__(self, img):
+  def _init_(self, img):
     self.img = img
 
-  def __eq__(self, other):
+  def _eq_(self, other):
     return self.img == other.img
 
   def _invColor(self, color):
@@ -32,7 +32,18 @@ class Picture:
   def join(self, p):
     """ Devuelve una nueva figura poniendo la figura del argumento 
         al lado derecho de la figura actual """
-    return Picture(None)
+    fig1_self=[]
+    fig2_p=[]
+    for value1 in self.img:
+      fig1_self.append(value1[::])
+    for value2 in p.img:
+      fig2_p.append(value2[::])
+
+    figTotal = []
+    for i in range(len(p.img)):
+      figTotal.append(fig1_self[i]+fig2_p[i])
+      
+    return figTotal
 
   def up(self, p):
     return Picture(None)
@@ -52,9 +63,9 @@ class Picture:
     for value in self.img:
       vertical.append(value[::-1])
     return vertical*n
+  
   #Extra: Sólo para realmente viciosos 
   def rotate(self):
     """Devuelve una figura rotada en 90 grados, puede ser en sentido horario
     o antihorario"""
     return Picture(None)
-
