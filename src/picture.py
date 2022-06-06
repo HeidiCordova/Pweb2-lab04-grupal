@@ -7,6 +7,7 @@ class Picture:
     self.img = img
 
   def __eq__(self, other):
+
     return self.img == other.img
 
   def _invColor(self, color):
@@ -49,11 +50,30 @@ class Picture:
   def join(self, p):
     """ Devuelve una nueva figura poniendo la figura del argumento 
         al lado derecho de la figura actual """
-    return Picture(None)
+
+    fig1_self=[]
+    fig2_p=[]
+    for value1 in self.img:
+      fig1_self.append(value1[::])
+    for value2 in p.img:
+      fig2_p.append(value2[::])
+
+    figTotal = []
+    for i in range(len(p.img)):
+      figTotal.append(fig1_self[i]+fig2_p[i])
+      
+    return figTotal
 
   def up(self, p):
-    return Picture(None)
+    figTotal = []
+    for value1 in p.img:
+      figTotal.append(value1[::])
+    for value2 in self.img:
+      figTotal.append(value2[::])
+      
+    return figTotal
 
+ 
  def under(self, p):
         """ Devuelve una nueva figura poniendo la figura p sobre la
             figura actual """
@@ -85,11 +105,13 @@ class Picture:
           i += 1
       return Picture(list(newPicture))
 
+
   def verticalRepeat(self, n):
     vertical = []
     for value in self.img:
       vertical.append(value[::])
     return vertical * n
+
   #Extra: Sólo para realmente viciosos 
   def rotate(self):
     """Devuelve una figura rotada en 90 grados, puede ser en sentido horario

@@ -75,3 +75,4 @@ board = whitePieces.up(emptyBoard.up(blackPieces))
 
 # Dibujando el tablero
 draw(board)
+
