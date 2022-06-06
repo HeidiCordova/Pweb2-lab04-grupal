@@ -1,3 +1,3 @@
 from interpreter import draw
 from chessPictures import *
-draw(queen.horizontalMirror)
+draw(square.up(square.negative))
