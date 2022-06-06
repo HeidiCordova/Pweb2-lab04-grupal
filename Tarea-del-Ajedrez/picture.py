@@ -46,7 +46,13 @@ class Picture:
     return figTotal
 
   def up(self, p):
-    return Picture(None)
+    figTotal = []
+    for value1 in self.img:
+      figTotal.append(value1[::])
+    for value2 in p.img:
+      figTotal.append(value2[::])
+      
+    return figTotal
 
   def under(self, p):
     """ Devuelve una nueva figura poniendo la figura p sobre la
