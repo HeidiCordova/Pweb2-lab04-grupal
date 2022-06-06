@@ -65,8 +65,8 @@
                 <li>Clonar el repositorio</li>
                 <li>Acceder al repositorio <code>cd Pweb2-lab04-grupal</code></li>
                 <li>Crear un ambiente virtual en el repositorio con <code>virtualenv -p python3 .</code></li>
-                <li>Instalar las dependencias con <code>pip install -r requirements.txt</code></li>
                 <li>Active el ambiente virtual con <code>./bin/activate</code> en linux y <code>./Scripts/activate</code> en Windows</li>
+                <li>Instalar las dependencias con <code>pip install -r requirements.txt</code></li>
                 <li>Ya podrá ejecutar los ejercicios con python</li>
             </ol>
         </li>
