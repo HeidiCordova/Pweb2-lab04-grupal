@@ -57,15 +57,31 @@
 <theader>
 <tr><th>Solución y resultados</th></tr>
 </theader>
-<tbody>
+<tbody >
 <tr><td>I. SOLUCIÓN DE EJERCICIOS/PROBLEMAS
-    <pre>                                                                                          </pre>
-    </td></tr>
+    <ul>
+        <li>asdasd</li>
+        <li>asdasd</li>
+        <li>asdasd</li>
+        <li>sadasd</li>
+    </ul>
+    
+
 <tr><td>II. SOLUCIÓN DEL CUESTIONARIO
-    <pre>                                                                                          </pre>
+    <ul>
+        <li>asdasd</li>
+        <li>asdasd</li>
+        <li>asdasd</li>
+        <li>sadasd</li>
+    </ul>
     </td></tr>
 <tr><td>III. CONCLUSIONES
-    <pre>                                                                                          </pre>
+    <ul>
+        <li>asdasd</li>
+        <li>asdasd</li>
+        <li>asdasd</li>
+        <li>sadasd</li>
+    </ul>
     </td></tr>
 </tbody>
 </table>
