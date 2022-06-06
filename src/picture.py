@@ -64,7 +64,14 @@ class Picture:
     def horizontalRepeat(self, n):
         """ Devuelve una nueva figura repitiendo la figura actual al costado
             la cantidad de veces que indique el valor de n """
-        return Picture(None)
+        newPicture = self.img
+        i = 0
+        while i < n:
+            # usamos map para hacer que se repita cada string, por ejemplo si
+            # la primera fila fuera " a ", ahora sería " a  a "
+            newPicture = map(lambda x, y: x + y, newPicture, self.img)
+            i += 1
+        return Picture(list(newPicture))
 
     def verticalRepeat(self, n):
         vertical = []
