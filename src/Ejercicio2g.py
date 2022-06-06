@@ -52,7 +52,7 @@ def buildPawnRow(isWhite):
 
 row = square.join(square.negative()).horizontalRepeat(3)
 rowInv = row.verticalMirror()
-emptyBoard = rowInv.up(row).verticalRepeat(1)
+emptyBoard = rowInv.up(row).verticalRepeat(2)
 
 # Creando filas principales para piezas blancas y negras
 
@@ -75,4 +75,3 @@ board = whitePieces.up(emptyBoard.up(blackPieces))
 
 # Dibujando el tablero
 draw(board)
-
